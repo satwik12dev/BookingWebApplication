@@ -2,15 +2,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebas
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
-// ---------------- Firebase Config ----------------
-const firebaseConfig = {
-  apiKey: "AIzaSyBcQ5oyLvJL5abrD95xl404_2UrBZjM2iE",
-  authDomain: "vehicleloginsystem.firebaseapp.com",
-  projectId: "vehicleloginsystem",
-  storageBucket: "vehicleloginsystem.appspot.com",
-  messagingSenderId: "335291119893",
-  appId: "1:335291119893:web:24bc54501717f10530d11c"
-};
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
