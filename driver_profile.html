@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EzyTranShip - Driver Profile</title>
+    <link rel="stylesheet" href="driver_profile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="logo/ML.jpg" alt="EzyTranShip Logo" class="logo">
+                <h1>EzyTranShip</h1>
+            </div>
+            <div class="nav-links">
+                <button class="nav-button" id="homeBtn">
+                    <i class="fas fa-home"></i> Home
+                </button>
+                <button class="nav-button active" id="profileBtn">
+                    <i class="fas fa-user"></i> Profile
+                </button>
+                <button class="nav-button accent-btn" id="startDrivingBtn">
+                    <i class="fas fa-truck"></i> Start Accepting Trips
+                </button>
+                <button class="nav-button" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <section id="overviewSection" class="overview-section">
+                <div class="welcome-message">
+                    <h2>Welcome to EzyTranShip Driver Community!</h2>
+                    <p>Your trusted partner in commercial vehicle transportation</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-route"></i>
+                        <h3>15,000+</h3>
+                        <p>Successful Deliveries</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>1,000+</h3>
+                        <p>Active Drivers</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h3>4.8/5</h3>
+                        <p>Driver Rating</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>50+</h3>
+                        <p>Cities Covered</p>
+                    </div>
+                </div>
+            
+                <div class="guidelines-section">
+                    <h2><i class="fas fa-clipboard-list"></i> Driver Guidelines</h2>
+                    <div class="guidelines-grid">
+                        <div class="guideline-card">
+                            <div class="guideline-header">
+                                <i class="fas fa-clock"></i>
+                                <h3>Working Hours</h3>
+                            </div>
+                            <ul>
+                                <li>Maximum 12 hours per day</li>
+                                <li>Mandatory 30-minute break every 4 hours</li>
+                                <li>Minimum 8 hours rest between shifts</li>
+                            </ul>
+                        </div>
+                        <div class="guideline-card">
+                            <div class="guideline-header">
+                                <i class="fas fa-shield-alt"></i>
+                                <h3>Safety Rules</h3>
+                            </div>
+                            <ul>
+                                <li>Regular vehicle maintenance checks</li>
+                                <li>Follow traffic rules strictly</li>
+                                <li>Wear proper safety equipment</li>
+                            </ul>
+                        </div>
+                        <div class="guideline-card">
+                            <div class="guideline-header">
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <h3>Payment Terms</h3>
+                            </div>
+                            <ul>
+                                <li>Weekly payment processing</li>
+                                <li>Performance-based incentives</li>
+                                <li>Fuel allowance provided</li>
+                            </ul>
+                        </div>
+                        <div class="guideline-card">
+                            <div class="guideline-header">
+                                <i class="fas fa-truck"></i>
+                                <h3>Vehicle Requirements</h3>
+                            </div>
+                            <ul>
+                                <li>Maximum vehicle age: 8 years</li>
+                                <li>Monthly maintenance checks</li>
+                                <li>Valid insurance mandatory</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            
+               
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profileSection" class="profile-section active-section">
+                <div class="profile-header">
+                    <h2><i class="fas fa-user-circle"></i> Complete Your Driver Profile</h2>
+                    <p class="required-text">* All fields are required</p>
+                </div>
+                <form id="profileForm" class="profile-form">
+                    <div class="form-grid">
+                        <div class="form-group file-input-container">
+                            <label for="profileImage">
+                                <i class="fas fa-image"></i> Profile Picture *
+                            </label>
+                            <div class="image-upload-wrapper">
+                                <div class="image-preview">
+                                    <img src="assets/default-avatar.png" alt="Profile Preview" id="imagePreview">
+                                </div>
+                                <label for="profileImage" class="upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Click to upload profile picture</span>
+                                </label>
+                                <input type="file" id="profileImage" name="profileImage" accept="image/*" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fullName">
+                                <i class="fas fa-user"></i> Full Name *
+                            </label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">
+                                <i class="fas fa-calendar"></i> Age *
+                            </label>
+                            <input type="number" id="age" name="age" min="21" max="65" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">
+                                <i class="fas fa-phone"></i> Phone Number *
+                            </label>
+                            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="license">
+                                <i class="fas fa-id-card"></i> License Number *
+                            </label>
+                            <input type="text" id="license" name="license" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience">
+                                <i class="fas fa-road"></i> Years of Experience *
+                            </label>
+                            <input type="number" id="experience" name="experience" min="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vehicleType">
+                                <i class="fas fa-truck"></i> Vehicle Type *
+                            </label>
+                            <select id="vehicleType" name="vehicleType" required>
+                                <option value="">Select vehicle type</option>
+                                <option value="truck">Truck</option>
+                                <option value="van">Van</option>
+                                <option value="pickup">Pickup</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-check-circle"></i> Complete Profile
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="profileDisplaySection" class="profile-display-section">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-image-container">
+                            <img id="displayProfileImage" src="truck/eicher.webp" alt="Profile Picture">
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="displayName"></h2>
+                            <div class="badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Verified Driver</span>
+                            </div>
+                            <p><i class="fas fa-phone"></i> <span id="displayPhone"></span></p>
+                            <p><i class="fas fa-id-card"></i> <span id="displayLicense"></span></p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            <span id="displayAge"></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-road"></i>
+                            <span id="displayExperience"></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-truck"></i>
+                            <span id="displayVehicle"></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span id="displayJoinDate"></span>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button id="editProfileBtn" class="btn-secondary">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                        <button id="viewTripsBtn" class="btn-primary">
+                            <i class="fas fa-route"></i> View Trips
+                        </button>
+     a               </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type = "module" src="driver_profile.js"></script>
+</body>
+</html>

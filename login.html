@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- LOGIN FORM -->
+  <div class="form-box" id="loginBox">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <button id="googleLoginBtn" class="google-btn">
+      <i class="fab fa-google"></i> Login with Google
+    </button>
+    <p>Don't have an account? <a href="#" id="goToSignup">Sign Up</a></p>
+  </div>
+
+  <!-- SIGNUP FORM WITH OTP -->
+  <div class="form-box" id="signupBox" style="display: none;">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <input type="email" id="signupEmail" placeholder="Email" required />
+      <input type="password" id="signupPassword" placeholder="Password" required />
+      <div class="role-selection">
+        <label><input type="radio" name="role" value="client" required /> Client</label>
+        <label><input type="radio" name="role" value="driver" required /> Driver</label>
+      </div>
+
+      <button type="button" id="sendOtpBtn">Send OTP</button>
+    </form>
+
+    <div id="otpSection" style="display: none;">
+      <input type="text" id="otpInput" placeholder="Enter OTP" />
+      <button id="verifyOtpBtn">Verify OTP & Sign Up</button>
+    </div>
+
+    <button id="googleSignupBtn" class="google-btn">
+      <i class="fab fa-google"></i> Sign Up with Google
+    </button>
+
+    <p>Already have an account? <a href="#" id="goToLogin">Log In</a></p>
+  </div>
+
+  <!-- HOME BUTTON -->
+  <div class="home" id="backtohome">
+    <button class="btn-primary" onclick="window.location.href='index.html'">
+      <i class="fas fa-home"></i> Go to Home
+    </button>
+  </div>
+
+  <!-- SUCCESS MESSAGE -->
+  <div class="success-message" id="successMessage" style="display: none;">
+    <div class="message-content">
+      <img src="GIF/one.gif" alt="Login Success" class="success-animation" style="width:420px; height:420px; margin-bottom:16px;">
+      <h2>Login Successful!</h2>
+      <p>Welcome to EzyTranShip. Redirecting...</p>
+    </div>
+  </div>
+
+  <!-- SIGNUP SUCCESS MESSAGE -->
+  <div class="success-message" id="signupSuccessMessage" style="display: none;">
+    <div class="message-content">
+      <img src="GIF/S.gif" alt="Signup Success" class="success-animation" style="width:180px; height:180px; margin-bottom:16px;">
+      <h2>Sign Up Completed!</h2>
+      <p>Your account has been created. Redirecting...</p>
+    </div>
+  </div>
+
+  <script type="module" src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EzyTranShip - Client Profile</title>
+    <link rel="stylesheet" href="client_profile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="logo/ML.jpg" alt="EzyTranShip Logo" class="logo">
+                <h1>EzyTranShip</h1>
+            </div>
+            <div class="nav-links">
+                <button class="nav-button" id="homeBtn">
+                    <i class="fas fa-home"></i> Home
+                </button>
+                <button class="nav-button active" id="profileBtn">
+                    <i class="fas fa-user"></i> Profile
+                </button>
+                <button class="nav-button" id="bookVehicleBtn">
+                    <i class="fas fa-truck"></i> Show Available Vehicle
+                </button>
+                <button class="nav-button" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </nav>
+        <main class="main-content">
+            <section id="profileSection" class="profile-section active-section">
+                <div class="profile-header">
+                    <h2><i class="fas fa-user-circle"></i> Complete Your Profile</h2>
+                    <p class="required-text">* All fields are required</p>
+                </div>
+                <form id="profileForm" class="profKOile-form">
+                    <div class="form-grid">
+                        <div class="form-group file-input-container">
+                            <label for="profileImage">
+                                <i class="fas fa-image"></i> Profile Picture *
+                            </label>
+                            <div class="image-upload-wrapper">
+                                <div class="image-preview">
+                                    <img src="assets/default-avatar.png" alt="Profile Preview" id="imagePreview">
+                                </div>
+                                <label for="profileImage" class="upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Click to upload profile picture</span>
+                                </label>
+                                <input type="file" id="profileImage" name="profileImage" accept="image/*" required>
+                            </div>
+                            <div class="upload-status"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fullName">
+                                <i class="fas fa-user"></i> Full Name *
+                            </label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">
+                                <i class="fas fa-calendar"></i> Age *
+                            </label>
+                            <input type="number" id="age" name="age" min="18" max="100" placeholder="Enter your age" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">
+                                <i class="fas fa-phone"></i> Phone Number *
+                            </label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> Email Address *
+                            </label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">
+                                <i class="fas fa-map-marker-alt"></i> City of Origin *
+                            </label>
+                            <input type="text" id="city" name="city" placeholder="Enter your city" required>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-check-circle"></i> Complete Profile
+                        </button>
+                    </div>
+                </form>
+            </section>
+            <section id="profileDisplaySection" class="profile-display-section">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-image-container">
+                            <img id="displayProfileImage" src="assets/default-avatar.png" alt="Profile Picture">
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="displayName"></h2>
+                            <p><i class="fas fa-envelope"></i> <span id="displayEmail"></span></p>
+                            <p><i class="fas fa-phone"></i> <span id="displayPhone"></span></p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            <span id="displayAge"></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="displayCity"></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span id="displayJoinDate"></span>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button id="editProfileBtn" class="btn-secondary">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                        <button id="viewOverviewBtn" class="btn-primary">
+                            <i class="fas fa-eye"></i> View Overview
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Overview Section (Initially Hidden) -->
+            <section id="overviewSection" class="overview-section">
+                <div class="welcome-message">
+                    <h2>Welcome to EzyTranShip!</h2>
+                    <p>Your Trusted Partner in Commercial Vehicle Transportation</p>
+                </div>
+                
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <i class="fas fa-truck-moving"></i>
+                        <h3>10,000+</h3>
+                        <p>Successful Deliveries</p>
+                    </div>
+                    <div class="achievement-card">
+                        <i class="fas fa-users"></i>
+                        <h3>5,000+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                    <div class="achievement-card">
+                        <i class="fas fa-star"></i>
+                        <h3>4.8/5</h3>
+                        <p>Customer Rating</p>
+                    </div>
+                    <div class="achievement-card">
+                        <i class="fas fa-globe"></i>
+                        <h3>50+</h3>
+                        <p>Cities Covered</p>
+                    </div>
+                </div>
+
+                <div class="partners-section">
+                    <h2><i class="fas fa-handshake"></i> Our Trusted Partners</h2>
+                    <div class="partners-grid">
+                        <div class="partner-card">
+                            <img src="c/ABC.png" alt="ABC Logistics">
+                            <h3>ABC Logistics</h3>
+                            <p>Premier logistics partner since 2018</p>
+                            <div class="partner-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9/5</span>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="c/D.png" alt="Delhivery">
+                            <h3>Delhivery</h3>
+                            <p>Specialized in documents delivery</p>
+                            <div class="partner-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8/5</span>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="c/FS.png" alt="FastTrack Cargo">
+                            <h3>FastTrack Cargo</h3>
+                            <p>Expert in time-sensitive deliveries</p>
+                            <div class="partner-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drivers-section">
+                    <h2><i class="fas fa-id-card"></i> Our Top Drivers</h2>
+                    <div class="drivers-grid">
+                        <div class="driver-card">
+                            <img src="DRIVER/OIP.jpeg" alt="John Doe">
+                            <h3>John Doe</h3>
+                            <p>Experience: 8+ years</p>
+                            <div class="driver-stats">
+                                <div class="stat">
+                                    <i class="fas fa-route"></i>
+                                    <span>1500+ Trips</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9/5</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="driver-card">
+                            <img src="DRIVER/OIP (1).jpeg" alt="Jane Smith">
+                            <h3>Jane Smith</h3>
+                            <p>Experience: 6+ years</p>
+                            <div class="driver-stats">
+                                <div class="stat">
+                                    <i class="fas fa-route"></i>
+                                    <span>1200+ Trips</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8/5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-section">
+                    <h2><i class="fas fa-truck"></i> Our Services</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <i class="fas fa-boxes"></i>
+                            <h3>Cargo Transport</h3>
+                            <p>Safe and secure transportation of your cargo across cities</p>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-clock"></i>
+                            <h3>Express Delivery</h3>
+                            <p>Time-sensitive deliveries with guaranteed arrival times</p>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h3>Real-time Tracking</h3>
+                            <p>Track your shipment location in real-time</p>
+                        </div>
+                    </div>
+                </div>         
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <script type="module" src="client_profile.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const overviewSection = document.getElementById('overviewSection');
+            const profileSection = document.getElementById('profileSection');
+
+            if (window.location.hash === '#overview') {
+
+                profileSection.style.display = 'none';
+                
+                overviewSection.style.display = 'block';
+                overviewSection.classList.add('fade-in');
+            }
+        });
+    </script>
+</body>
+</html>

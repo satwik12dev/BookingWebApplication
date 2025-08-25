@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Client Dashboard - EzyTranShip</title>
+  <link rel="stylesheet" href="dashboard.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+  <header>
+    <div class="logo-wrapper">
+      <img src="logo/LO.png" alt="EzyTranShip Logo"/>
+      <span class="logo-text">EzyTranShip</span>
+    </div>
+    <nav>
+      <button id="home" class="btn-home">
+        <i class="fas fa-home"></i> Home
+      </button>
+      <button id="profileBtn" class="btn-profile">
+        <i class="fas fa-user"></i> Profile
+      </button>
+      <button id="logoutBtn" class="btn-logout">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </nav>
+  </header>
+
+  <main class="dashboard-container">
+    <!-- Search Drivers -->
+    <section class="search-section">
+      <h2><i class="fas fa-search"></i> Search Drivers</h2>
+      <div class="search-filters">
+        <input type="text" id="searchInput" placeholder="Search by name, phone, city, or vehicle type"/>
+        <button id="searchDriverBtn" class="btn-primary">
+          <i class="fas fa-filter"></i> Search
+        </button>
+        <button id="clearSearchBtn" class="btn-secondary">
+          <i class="fas fa-times"></i> Clear
+        </button>
+      </div>
+    </section>
+
+    <!-- Available Drivers from Firebase -->
+    <section class="available-drivers">
+      <h2><i class="fas fa-id-card"></i> Available Drivers</h2>
+      <div class="driver-grid" id="driverGrid"></div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script type="module" src="client_dashboard.js"></script>
+  <script src="auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const isAuthenticated = localStorage.getItem("isAuthenticated");
+      const clientProfile = localStorage.getItem("clientProfile");
+
+      if (!isAuthenticated || !clientProfile) {
+        window.location.href = "login.html";
+        return;
+      }
+    });
+  </script>
+</body>
+</html>

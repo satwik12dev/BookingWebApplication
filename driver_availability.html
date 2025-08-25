@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EzyTranShip - Driver Availability</title>
+    <link rel="stylesheet" href="d_avail.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="logo/ML.jpg" alt="EzyTranShip Logo" class="logo">
+                <h1>EzyTranShip</h1>
+            </div>
+            <div class="nav-links">
+                <button class="nav-button" id="homeBtn">
+                    <i class="fas fa-home"></i> Home
+                </button>
+                <button class="nav-button" id="profileBtn">
+                    <i class="fas fa-user"></i> Vehicle  Details
+                </button>
+                <button class="nav-button active" id="availabilityBtn">
+                    <i class="fas fa-truck"></i> <span id="btnText"> Bookings</span>
+                </button>
+                <button class="nav-button" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <section class="availability-section fade-in">
+                <!-- Status Toggle Card -->
+                <div class="status-card">
+                    <div class="status-header">
+                        <h2><i class="fas fa-toggle-on"></i> Driver Status</h2>
+                        <div class="status-controls">
+                            <label class="switch">
+                                <input type="checkbox" id="availabilityToggle">
+                                <span class="slider"></span>
+                            </label>
+                            <p id="statusText" class="status-text offline">Currently Offline</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Route Preferences Card -->
+                <div class="details-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-route"></i> Route Preferences</h2>
+                    </div>
+                    <div class="route-grid">
+                        <div class="form-group">
+                            <label>Your Routes</label>
+                            <div class="route-chips" id="routeChips">
+                                <button class="add-route" id="addRouteBtn">
+                                    <i class="fas fa-plus"></i> Add Route
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Operating Hours</label>
+                            <div class="hours-select">
+                                <select id="startTime" class="time-select">
+                                    <option>6:00 AM</option>
+                                    <option>7:00 AM</option>
+                                    <option>8:00 AM</option>
+                                    <option>9:00 AM</option>
+                                </select>
+                                <span class="time-separator">to</span>
+                                <select id="endTime" class="time-select">
+                                    <option>6:00 PM</option>
+                                    <option>7:00 PM</option>
+                                    <option>8:00 PM</option>
+                                    <option>9:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bookings Section -->
+            <section id="bookingsSection" class="bookings-section fade-in" style="display: none;">
+                <div class="details-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-calendar-check"></i> Your Bookings</h2>
+                        <div class="booking-filters">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="pending">Pending</button>
+                            <button class="filter-btn" data-filter="accepted">Accepted</button>
+                            <button class="filter-btn" data-filter="completed">Completed</button>
+                        </div>
+                    </div>
+                    
+                    <div class="bookings-grid" id="bookingsGrid">
+                        <!-- Bookings will be added here dynamically -->
+                        <div class="no-bookings-message" id="noBookingsMessage">
+                            <i class="fas fa-calendar-times"></i>
+                            <p>No bookings available at the moment</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vehicle Details Section -->
+            <section id="vehicleDetailsSection" class="vehicle-details-section fade-in" style="display: none;">
+                <div class="details-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-truck"></i> Vehicle Details</h2>
+                        <button class="btn-edit" id="editVehicleBtn">
+                            <i class="fas fa-edit"></i> Edit Details
+                        </button>
+                    </div>
+                    <form id="vehicleForm" class="details-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>
+                                    <i class="fas fa-id-card"></i> Vehicle Registration Number
+                                </label>
+                                <input type="text" id="regNumber" required placeholder="e.g., MH02BR2023">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <i class="fas fa-calendar"></i> Vehicle Model Year
+                                </label>
+                                <input type="number" id="modelYear" min="2015" max="2024" required placeholder="2023">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <i class="fas fa-weight"></i> Maximum Load Capacity
+                                </label>
+                                <div class="input-with-unit">
+                                    <input type="number" id="loadCapacity" required placeholder="10">
+                                    <span class="unit">tons</span>
+                                </div>
+                            </div>
+                            <div class="form-group full-width">
+                                <label>
+                                    <i class="fas fa-ruler"></i> Vehicle Dimensions
+                                </label>
+                                <div class="dimensions-input">
+                                    <div class="dimension-field">
+                                        <input type="number" id="length" placeholder="Length" required>
+                                        <span class="unit">m</span>
+                                    </div>
+                                    <span class="separator">×</span>
+                                    <div class="dimension-field">
+                                        <input type="number" id="width" placeholder="Width" required>
+                                        <span class="unit">m</span>
+                                    </div>
+                                    <span class="separator">×</span>
+                                    <div class="dimension-field">
+                                        <input type="number" id="height" placeholder="Height" required>
+                                        <span class="unit">m</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group full-width">
+                                <label>
+                                    <i class="fas fa-info-circle"></i> Additional Details
+                                </label>
+                                <textarea id="vehicleNotes" rows="3" placeholder="Any special features or notes about your vehicle"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-save"></i> Save Details
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Enhanced Modal -->
+    <div id="addRouteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-route"></i> Add New Route</h3>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="routeForm">
+                <div class="form-group">
+                    <label><i class="fas fa-map-marker-alt"></i> From City</label>
+                    <input type="text" id="fromCity" required placeholder="Enter starting city">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-map-marker"></i> To City</label>
+                    <input type="text" id="toCity" required placeholder="Enter destination city">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="cancelRoute">Cancel</button>
+                    <button type="submit" class="btn-primary">Add Route</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="driver_availability.js"></script>
+</body>
+</html>
